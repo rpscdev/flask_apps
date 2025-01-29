@@ -2,16 +2,16 @@ from flask import Flask, render_template, request
 import numpy as np
 import joblib
 
-application = Flask(__name__)
+app = Flask(__name__)
 
 # Load trained model
 model = joblib.load('depression_model.pkl')
 
-@application.route('/')
+@app.route('/')
 def home():
     return render_template('index.html')
 
-@application.route('/predict', methods=['POST'])
+@app.route('/predict', methods=['POST'])
 def predict():
     try:
         # Get input values from the form
@@ -52,4 +52,4 @@ def predict():
         return render_template('index.html', prediction=f"Error: {str(e)}")
 
 if __name__ == '__main__':
-    application.run(debug=True)
+    app.run(debug=True)
