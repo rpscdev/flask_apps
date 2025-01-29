@@ -8,11 +8,11 @@ application = Flask(__name__)
 # Load trained model
 model = joblib.load('depression_model.pkl')
 
-@app.route('/')
+@application.route('/')
 def home():
     return render_template('index.html')
 
-@app.route('/predict', methods=['POST'])
+@application.route('/predict', methods=['POST'])
 def predict():
     try:
         # Get input values from the form
