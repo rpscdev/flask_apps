@@ -1,4 +1,3 @@
-from app import app as application
 from flask import Flask, render_template, request
 import numpy as np
 import joblib
